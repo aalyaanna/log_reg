@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-52dp">
+    tools:layout_editor_absoluteY="1dp">
 
     <Button
         android:id="@+id/backbtn1"
@@ -42,8 +42,8 @@
         android:layout_height="35dp"
         android:background="@drawable/custome_input"
         android:ems="10"
-        android:inputType="textPassword"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:paddingTop="3dp"
         android:paddingRight="3dp"
@@ -103,7 +103,7 @@
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.483" />
 
     <TextView
         android:id="@+id/textView15"
@@ -118,10 +118,10 @@
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.443" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/regEmail"
+        android:id="@+id/regUsername"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:background="@drawable/custome_input"
@@ -184,29 +184,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.353" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone Verification"
-        android:textColor="@color/login_color"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
-
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/regNumber"
+        android:id="@+id/regEmail"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:background="@drawable/custome_input"
         android:ems="10"
-        android:inputType="number"
-        android:hint="Verification Code"
+        android:hint="Email"
         android:paddingLeft="15dp"
         android:paddingTop="3dp"
         android:paddingRight="3dp"
@@ -218,7 +202,22 @@
         app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.572" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="@color/login_color"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.532" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/regPhone"
@@ -240,22 +239,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
-
-    <Button
-        android:id="@+id/codebtn"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:background="@drawable/custome_input"
-        android:backgroundTint="#66B70F0A"
-        android:text="Send Code"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476" />
 
     <Button
         android:id="@+id/signupbtn"

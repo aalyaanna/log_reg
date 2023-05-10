@@ -27,7 +27,7 @@ import java.util.Objects;
 
 public class login extends AppCompatActivity {
 
-    TextInputEditText loginEmail, loginPassword;
+    TextInputEditText loginUsername, loginPassword;
     Button loginbtn;
     TextView txtvReg;
 
@@ -37,7 +37,7 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
 
-        loginEmail = findViewById(R.id.logEmail);
+        loginUsername = findViewById(R.id.logUsername);
         loginPassword = findViewById(R.id.logPassword);
         loginbtn = findViewById(R.id.loginbtn);
         txtvReg = findViewById(R.id.txtvReg);
@@ -54,11 +54,12 @@ public class login extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email, password;
-                email = String.valueOf(loginEmail.getText());
+                String email, username, password;
+                email = String.valueOf(loginUsername.getText());
+                username = String.valueOf(loginUsername.getText());
                 password = String.valueOf(loginPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
+                if(TextUtils.isEmpty(username)){
                     Toast.makeText(login.this, "Enter your Email", Toast.LENGTH_SHORT).show();
                 }
 
@@ -86,40 +87,40 @@ public class login extends AppCompatActivity {
         });
     }
     public void checkUser(){
-        String userEmail = loginEmail.getText().toString().trim();
+        String userUsername = loginUsername.getText().toString().trim();
         String userPassword = loginPassword.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        Query checkUserDatabase = reference.orderByChild("user-email").equalTo(userEmail);
+        Query checkUserDatabase = reference.orderByChild("user-email").equalTo(userUsername);
 
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
-                    loginEmail.setError(null);
-                    String passwordFromDB = snapshot.child(userEmail).child("password").getValue(String.class);
+                    loginUsername.setError(null);
+                    String passwordFromDB = snapshot.child(userUsername).child("password").getValue(String.class);
 
                     if (passwordFromDB.equals(userPassword)){
-                        loginEmail.setError(null);
+                        loginUsername.setError(null);
 
-                        String emailFromDB = snapshot.child(userEmail).child("email").getValue(String.class);
-                        String addressFromDB = snapshot.child(userEmail).child("address").getValue(String.class);
-                        String phoneFromDB = snapshot.child(userEmail).child("phone").getValue(String.class);
-                        String numberFromDB = snapshot.child(userEmail).child("number").getValue(String.class);
+                        String emailFromDB = snapshot.child(userUsername).child("email").getValue(String.class);
+                        String usernameFromDB = snapshot.child(userUsername).child("username").getValue(String.class);
+                        String addressFromDB = snapshot.child(userUsername).child("address").getValue(String.class);
+                        String phoneFromDB = snapshot.child(userUsername).child("phone").getValue(String.class);
 
                         Intent intent = new Intent(login.this, register.class);
 
                         intent.putExtra("email", emailFromDB);
+                        intent.putExtra("username", usernameFromDB);
                         intent.putExtra("address", addressFromDB);
                         intent.putExtra("phone", phoneFromDB);
-                        intent.putExtra("number", numberFromDB);
                     } else {
                         loginPassword.setError("Invalid Credentials");
                         loginPassword.requestFocus();
                     }
                 } else {
-                    loginEmail.setError("Email does not Exist");
-                    loginEmail.requestFocus();
+                    loginUsername.setError("username does not Exist");
+                    loginUsername.requestFocus();
                 }
             }
 

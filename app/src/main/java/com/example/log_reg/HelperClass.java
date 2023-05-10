@@ -1,14 +1,14 @@
 package com.example.log_reg;
 
 public class HelperClass {
-    String email, phone, number, address, password;
+    String username, phone, email, address, password;
 
-    public String getEmail() {
-        return email;
+    public String setUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String email) {
+        this.username = username;
     }
 
     public String getPhone() {
@@ -19,12 +19,12 @@ public class HelperClass {
         this.phone = phone;
     }
 
-    public String getNumber() {
-        return number;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {
@@ -43,10 +43,10 @@ public class HelperClass {
         this.password = password;
     }
 
-    public HelperClass(String email, String phone, String number, String address, String password) {
-        this.email = email;
+    public HelperClass(String username, String phone, String email, String address, String password) {
+        this.username = username;
         this.phone = phone;
-        this.number = number;
+        this.email = email;
         this.address = address;
         this.password = password;
     }

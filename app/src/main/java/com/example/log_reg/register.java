@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
 
-    TextInputEditText regEmailtxt, regPhonetxt, regNumbertxt, regAddresstxt, regPasswordtxt;
+    TextInputEditText regEmailtxt, regPhonetxt, regUsernametxt, regAddresstxt, regPasswordtxt;
     Button signinbtn;
     TextView signintxt;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -33,9 +33,9 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_screen);
 
-        regEmailtxt = findViewById(R.id.regEmail);
+        regUsernametxt = findViewById(R.id.regUsername);
         regPhonetxt = findViewById(R.id.regPhone);
-        regNumbertxt = findViewById(R.id.regNumber);
+        regEmailtxt = findViewById(R.id.regEmail);
         regAddresstxt = findViewById(R.id.regAddress);
         regPasswordtxt = findViewById(R.id.regPassword);
 
@@ -54,25 +54,25 @@ public class register extends AppCompatActivity {
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String regEmail, regAddress, regPassword, regPhone, regNumber;
+                String regEmail, regAddress, regPassword, regPhone, regUsername;
 
                 database = FirebaseDatabase.getInstance();
                 reference = database.getReference("users");
 
                 String email = regEmailtxt.getText().toString();
                 String phone = regPhonetxt.getText().toString();
-                String number = regNumbertxt.getText().toString();
+                String username = regUsernametxt.getText().toString();
                 String address = regAddresstxt.getText().toString();
                 String password = regPasswordtxt.getText().toString();
 
-                HelperClass helperClass = new HelperClass(email, phone, number, address, password);
-                reference.child(email).setValue(helperClass);
+                HelperClass helperClass = new HelperClass(email, phone, username, address, password);
+                reference.child(username).setValue(helperClass);
 
                 regEmail = String.valueOf(regEmailtxt.getText());
                 regAddress = String.valueOf(regAddresstxt.getText());
                 regPassword = String.valueOf(regPasswordtxt.getText());
                 regPhone = String.valueOf(regPhonetxt.getText());
-                regNumber = String.valueOf(regNumbertxt.getText());
+                regUsername = String.valueOf(regUsernametxt.getText());
 
 
                 if(TextUtils.isEmpty(regEmail)){
@@ -95,8 +95,8 @@ public class register extends AppCompatActivity {
                     return;
                 }
 
-                if(TextUtils.isEmpty(regNumber)){
-                    Toast.makeText(register.this, "Enter your Verification Code", Toast.LENGTH_SHORT).show();
+                if(TextUtils.isEmpty(regUsername)){
+                    Toast.makeText(register.this, "Enter your Username", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
