@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
 
@@ -23,6 +25,8 @@ public class register extends AppCompatActivity {
     Button signinbtn;
     TextView signintxt;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +56,24 @@ public class register extends AppCompatActivity {
             public void onClick(View view) {
                 String regEmail, regAddress, regPassword, regPhone, regNumber;
 
+                database = FirebaseDatabase.getInstance();
+                reference = database.getReference("users");
+
+                String email = regEmailtxt.getText().toString();
+                String phone = regPhonetxt.getText().toString();
+                String number = regNumbertxt.getText().toString();
+                String address = regAddresstxt.getText().toString();
+                String password = regPasswordtxt.getText().toString();
+
+                HelperClass helperClass = new HelperClass(email, phone, number, address, password);
+                reference.child(email).setValue(helperClass);
+
                 regEmail = String.valueOf(regEmailtxt.getText());
                 regAddress = String.valueOf(regAddresstxt.getText());
                 regPassword = String.valueOf(regPasswordtxt.getText());
                 regPhone = String.valueOf(regPhonetxt.getText());
                 regNumber = String.valueOf(regNumbertxt.getText());
+
 
                 if(TextUtils.isEmpty(regEmail)){
                     Toast.makeText(register.this, "Enter your Email", Toast.LENGTH_SHORT).show();
