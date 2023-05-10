@@ -169,6 +169,7 @@
         android:layout_height="45dp"
         android:background="@drawable/custome_input"
         android:hint="Password"
+        android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
