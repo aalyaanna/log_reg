@@ -65,6 +65,7 @@ public class register extends AppCompatActivity {
                 String address = regAddresstxt.getText().toString();
                 String password = regPasswordtxt.getText().toString();
 
+
                 HelperClass helperClass = new HelperClass(email, phone, username, address, password);
                 reference.child(username).setValue(helperClass);
 
