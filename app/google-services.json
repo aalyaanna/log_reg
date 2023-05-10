@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "860161785912",
+    "project_id": "tom-ready",
+    "storage_bucket": "tom-ready.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860161785912:android:fea2f964aee78d015fa6cd",
+        "android_client_info": {
+          "package_name": "com.example.log_reg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860161785912-69ujsq07ckdq2s3e0j9f6kcocvc89k6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvZ-O8edk_TTPdsI877v6AbBAq2fTENvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860161785912-69ujsq07ckdq2s3e0j9f6kcocvc89k6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
